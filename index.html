@@ -487,28 +487,20 @@
                 confirmation.style.display = 'block';
                 noBtn.textContent = 'No 🙇‍♂️';
             } else {
-                // Make the No button run away (only on larger screens)
-                if (window.innerWidth > 480) {
-                    const container = document.querySelector('.container');
-                    const containerRect = container.getBoundingClientRect();
-                    
-                    noBtn.classList.add('moving');
-                    
-                    const maxX = containerRect.width - noBtn.offsetWidth - 40;
-                    const maxY = containerRect.height - noBtn.offsetHeight - 40;
-                    
-                    const randomX = Math.random() * maxX;
-                    const randomY = Math.random() * maxY;
-                    
-                    noBtn.style.left = randomX + 'px';
-                    noBtn.style.top = randomY + 'px';
-                } else {
-                    // On mobile, just shake the button
-                    noBtn.style.animation = 'shake 0.5s';
-                    setTimeout(() => {
-                        noBtn.style.animation = '';
-                    }, 500);
-                }
+                // Make the No button run away on all screen sizes
+                const container = document.querySelector('.container');
+                const containerRect = container.getBoundingClientRect();
+                
+                noBtn.classList.add('moving');
+                
+                const maxX = containerRect.width - noBtn.offsetWidth - 40;
+                const maxY = containerRect.height - noBtn.offsetHeight - 40;
+                
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+                
+                noBtn.style.left = randomX + 'px';
+                noBtn.style.top = randomY + 'px';
 
                 // Update button text
                 const noTexts = ['Are you sure? 🤔', 'Really? 😕', 'Please? 🥺', 'Think again! 🧏🧏‍♂️', 'One more chance! 🧎‍➡️🧍‍♀️', "You can't escape my love! 🫶💕", "Finally... Yes! 👩🏻‍❤️‍💋‍👨🏻"];
